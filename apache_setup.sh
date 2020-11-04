@@ -1,5 +1,10 @@
 #!/bin/sh
-sudo apt install git nano php libapache2-mod-php php-mbstring php-xmlrpc php-soap php-gd php-xml php-cli php-zip php-bcmath php-tokenizer php-json php-pear apache2 composer npm mysql-server mysql-client php-mysql phpmyadmin supervisor redis php-redis sqlite3 php-sqlite3;
+sudo apt install git nano php libapache2-mod-php php-mbstring php-xmlrpc php-soap php-gd php-xml php-cli php-zip php-bcmath php-tokenizer php-json php-pear apache2 composer npm supervisor redis php-redis;
+# Install MySql
+sudo apt install mysql-server mysql-client php-mysql phpmyadmin;
+# Install SQLite
+sudo apt install sqlite3 php-sqlite3;
+
 
 sudo nano /etc/apache2/apache2.conf;
 sudo rm /etc/apache2/sites-enabled/000-default.conf;

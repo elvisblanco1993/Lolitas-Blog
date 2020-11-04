@@ -12,9 +12,9 @@
 
         <!--Title-->
         <p class="text-white font-extrabold text-3xl md:text-5xl">
-            Tati's Notes
+            {{ config('app.name', 'Lolitas Blog') }}
         </p>
-        <p class="text-xl md:text-2xl text-gray-800">Let's get started. Shall we?</p>
+        {{-- <p class="text-xl md:text-2xl text-gray-800"></p> --}}
     </div>
 </div>
 
