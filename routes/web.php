@@ -80,6 +80,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::put('post/{post}', [PostController::class, 'update'])->name('post.update');
 
     /**
+     * Delete post
+     */
+    Route::delete('post/{post}/delete', [PostController::class, 'delete']);
+
+    /**
      * Show Tags
      */
     Route::get('tags', [TagController::class, 'index'])->name('tags');
@@ -93,6 +98,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
      * Create Tag
      */
     Route::post('tag', [TagController::class, 'store'])->name('tag.save');
+
+    /**
+     * Delete Tag
+     */
+    Route::delete('tag/{tag}/delete', [TagController::class, 'delete'])->name('tag.delete');
 
     /**
      * View messages from blog's contact form

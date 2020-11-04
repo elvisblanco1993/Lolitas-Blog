@@ -190,11 +190,10 @@ class PostController extends Controller
     }
 
     /**
-     * Like Post
+     * Delete Post
      */
-    public function like () {
-        dd(
-            'Like'
-        );
+    public function delete(Post $post) {
+        $post->delete();
+        return redirect(route('posts'));
     }
 }
