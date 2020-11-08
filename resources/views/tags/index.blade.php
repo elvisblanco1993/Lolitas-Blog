@@ -82,7 +82,7 @@
                                                 </svg>
                                             </a>
 
-                                            <button class="text-red-500 mx-2" title="Delete tag">
+                                            <button class="text-red-500 mx-2" title="Delete tag" id="delete-btn-{{$tag->id}}">
                                                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                                 </svg>
@@ -99,6 +99,68 @@
                         </tbody>
                     </table>
                 </div>
+
+                @forelse ($tags as $tag)
+                    {{-- Delete Modal --}}
+                    <div class="bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center" id="overlay-{{$tag->id}}">
+                        <div class="bg-gray-200 max-w-md py-2 px-3 rounded shadow-xl text-gray-800">
+                            <div class="flex justify-between items-center">
+                                <h4 class="text-lg font-bold">Delete Tag?</h4>
+                                <svg class="h-6 w-6 cursor-pointer p-1 hover:bg-gray-300 rounded-full" id="close-modal-{{$tag->id}}" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="mt-2 text-gray-600">
+                                <p>Are you sure you want to delete this post?</p>
+                                <p>By deleting this tag, all related contents will be permanently lost.</p>
+                            </div>
+                            <div class="mt-3 flex justify-end space-x-4">
+                                <button type="link"
+                                    class="px-4 py-2 text-gray-500 rounded-lg font-semibold shadow hover:bg-gray-100"
+                                    id="cancel-delete-{{$tag->id}}">
+                                    Cancel
+                                </button>
+
+                                {{-- Delete Post Form --}}
+                                <form class="inline-block align-text-middle" action="{{ url('/tag/'. $tag->id.'/delete') }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit"
+                                        class="px-4 py-2 text-gray-100 bg-red-600 rounded-lg font-semibold shadow hover:bg-red-800">
+                                        Delete
+                                    </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        window.addEventListener('DOMContentLoaded', () =>{
+                            const overlay = document.querySelector('#overlay-'+{{$tag->id}})
+                            const delBtn = document.querySelector('#delete-btn-'+{{$tag->id}})
+                            const closeBtn = document.querySelector('#close-modal-'+{{$tag->id}})
+                            const cancelBtn = document.querySelector('#cancel-delete-'+{{$tag->id}})
+
+                            const toggleModal = () => {
+                                overlay.classList.toggle('hidden')
+                                overlay.classList.toggle('flex')
+                            }
+
+                            delBtn.addEventListener('click', toggleModal)
+
+                            closeBtn.addEventListener('click', toggleModal)
+
+                            cancelBtn.addEventListener('click', toggleModal)
+                        })
+
+                    </script>
+                @empty
+
+                @endforelse
             </div>
         </div>
     </div>
