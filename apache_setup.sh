@@ -13,9 +13,9 @@ sudo nano /etc/apache2/sites-enabled/onboard-website.conf;
 # <VirtualHost *:80>
 #    ServerName nboard.app
 #    ServerAdmin support@registrac.page
-#    DocumentRoot /home/elvis/Projects/tati-blog/public
+#    DocumentRoot /home/elvis/Projects/tati-blog/Lolitas-Blog/public
 
-#    <Directory /home/elvis/Projects/tati-blog/>
+#    <Directory /home/elvis/Projects/tati-blog/Lolitas-Blog>
 #        AllowOverride All
 #    </Directory>
 #    ErrorLog ${APACHE_LOG_DIR}/error.log
