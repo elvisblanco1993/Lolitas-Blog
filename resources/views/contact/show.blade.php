@@ -8,11 +8,11 @@
 
 
             <p class="text-4xl text-left font-bold">
-                {{ __('Have a recommendation?') }}
+                {{ __('Contact us') }}
             </p>
 
             <p class="text-xl text-left font-semibold text-gray-600">
-                {{ __('Leave me a message down here for recommendations and / or suggestions.') }}
+                {{ __('Send us your thoughts. We will get back to you as soon as possible.') }}
             </p>
 
             @include('layouts.feedback')

@@ -30,7 +30,7 @@
         @yield('content')
 
         {{-- Footer --}}
-        <footer class="text-gray-400 text-center text-xs mt-12 py-4">
+        <footer class="text-gray-500 text-center text-xs mt-12 py-4 sm:sticky md:absolute inset-x-0 bottom-0">
             Copyright © {{ Carbon\Carbon::now()->format('Y') }} Lolita's Blog
         </footer>
         @livewireScripts
