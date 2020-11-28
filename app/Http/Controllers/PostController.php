@@ -116,8 +116,9 @@ class PostController extends Controller
         ]);
 
         if ( ! is_null(request('tag')) && count( request('tag') ) > 0 ) {
+            $post->tags()->sync([]);
             foreach ( request('tag') as $tag ) {
-                $post->tags()->sync( DB::table('tags')->where('slug', $tag)->first()->id, false );
+                $post->tags()->sync( DB::table('tags')->where('slug', $tag)->first()->id, false);
             }
         }
 
