@@ -12,7 +12,7 @@
             </div>
 
             {{-- Navigation Links --}}
-            <div class="py-6 flex items-center uppercase">
+            <div class="py-6 flex items-center">
                 <a href="{{ route('frontpage') }}" class="mx-4 hover:text-yellow-400">
                     {{ __('Home') }}
                 </a>

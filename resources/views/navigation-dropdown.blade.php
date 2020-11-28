@@ -24,6 +24,9 @@
                     <x-jet-nav-link href="{{ route('messages') }}" :active="request()->routeIs('messages')">
                         {{ __('Messages') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('frontpage') }}">
+                        {{ __('Back to website') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
