@@ -41,7 +41,7 @@
                         </p>
                         <p class="font-serif text-xs px-6 mb-5">
                             @foreach ($post->tags as $tag)
-                                <a class="px-1 bg-yellow-100 text-gray-800 text-xs rounded mx-2 hover:cursor-pointer"  href="{{ url('/tags/'.$tag->slug) }}">
+                                <a class="bg-gray-200 text-gray-800 text-xs rounded mx-2 px-2 py-1 hover:cursor-pointer"  href="{{ url('/tags/'.$tag->slug) }}">
                                     #{{ $tag->slug }}
                                 </a>
                             @endforeach

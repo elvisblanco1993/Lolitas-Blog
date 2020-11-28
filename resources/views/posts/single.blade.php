@@ -12,7 +12,7 @@
 
             <div class="text-left ">
                 @foreach ($post->tags as $tag)
-                    <a class="px-1 bg-yellow-100 hover:bg-yellow-200 text-gray-800 text-xs rounded hover:cursor-pointer" href="{{ url('/tags/'.$tag->slug) }}">#{{$tag->slug}}</a>
+                    <a class="bg-gray-200 text-gray-800 text-xs rounded mx-2 px-2 py-1 hover:cursor-pointer" href="{{ url('/tags/'.$tag->slug) }}">#{{$tag->slug}}</a>
                 @endforeach
             </div>
 
